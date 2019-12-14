@@ -3,7 +3,7 @@
     <!-- vehicle model and world -->
     <arg name="est" default="ekf2"/>
     <arg name="vehicle" default="iris"/>
-    <arg name="world" default="/home/yari/Projects/catkin_ws/src/motion_controller/worlds/empty_world.world"/>
+    <arg name="world" default="$(find hector)/worlds/empty.world"/>
     <!-- gazebo configs -->
     <arg name="gui" default="true"/>
     <arg name="debug" default="false"/>
@@ -18,6 +18,9 @@
         <arg name="paused" value="$(arg paused)"/>
     </include>  
 
-   <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch" />
+   <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor_with_laser.launch" />
+   <include file="$(find hector_pose_estimation)/launch/pose.launch"/>
+   <node pkg="hector" name="get_location_of_drone.py" type="get_location_of_drone.py" output="screen"/>
+   <!--<include file="$(find hector)/launch/open_rviz.launch"/>-->
 </launch>
 

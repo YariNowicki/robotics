@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/yari/Projects/catkin_ws/src/slam_gmapping/gmapping/cmake-build-debug/devel/setup.sh
